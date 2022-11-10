@@ -10,21 +10,16 @@ Project is created on Yandex Cloud VM under Ubuntu and stored as GitHub reposito
 Initial steps:
 
 clone the repo and _car-prices-midterm_ will be the _project folder_ 
->`git clone https://github.com/K0nkere/Car-prices-midterm.git`
-
+> ```git clone https://github.com/K0nkere/Car-prices-midterm.git```
 from the _project folder_ create conda virtual environment based on the provided _requirements.txt_ and _python 3.9_
-> `conda create -n midterm-project python=3.9`
-
+> ```conda create -n midterm-project python=3.9```
 activate the conda env
-> `conda activate midterm-project`
-
+> ```conda activate midterm-project```
 installation python packages
-> `pip install -r requirements.txt`
-
+> ```pip install -r requirements.txt```
 If you are using Jupyter Notebook then its need to add venv python to ipykernel list
-> `conda install -c anaconda ipykernel`
-
-> `python -m ipykernel install --user --name=midterm-project`
+> ```conda install -c anaconda ipykernel```
+> ```python -m ipykernel install --user --name=midterm-project```
 
 So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter Notebooks's menu
 
@@ -38,19 +33,21 @@ So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter No
 
 ### Running
 1. Activate the conda venv from the _project folder_
-> `conda activate midterm-project`
-
+> ```conda activate midterm-project```
 2. Run model trainig process - it will train model on _full train_ dataset and will save it as a BentoML model
-> `python ../train-model.py`
-
+> ```python train-model.py```
 3. Check it with
-> `bentoml models list`
+> ```bentoml models list```
 
-it will return something like _"car-price-prediction-model:szcugfdangto4loz"_
-
+It will return something like 
+```
+ Tag                                          Module           Size        Creation Time       
+ car-price-prediction-model:szcugfdangto4loz  bentoml.xgboost  4.35 MiB    2022-11-09 20:03:32
+```
 At this step you can validate the working process by manually launching with API service
 > ```cd deployment``` - move to _deployment_ folder
-> ```docker ps``` - check that 3000 port is empty, use `docker kill <container_id>` if need
+> ```docker ps``` - check that 3000 port is empty
+>> ```docker kill <container_id>``` use if need
 > ```bentoml serve service.py:svc --reload```
 
 Access API service with your browser _localhost:3000_ and you can use the following test - it is 199 row of _test dataset_
