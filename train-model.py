@@ -112,7 +112,7 @@ if __name__ == "__main__":
                                 "predict": {
                                     "batchable": True,
                                     "batch_dim": 0
+                                    }
                                 }
-                            }
                             )
 

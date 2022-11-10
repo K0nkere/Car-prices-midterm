@@ -29,8 +29,6 @@ model_runner = model_ref.to_runner()
 
 svc = bentoml.Service("car-price-prediction-service", runners=[model_runner])
 
-# @svc.api(input=JSON(), output=JSON())
-
 @svc.api(input=JSON(pydantic_model=CarApplication), output=JSON())
 async def predictor(car_application):
     

@@ -92,7 +92,7 @@ and returns something like
 
 6. Run the container by using your tag (!!!)
 
-```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve --production```
+```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve```
 
 ### Test row
 ```
@@ -115,3 +115,9 @@ and returns something like
  "saledate": "Wed Feb 25 2015 03:30:00 GMT-0800 (PST)"
  }
  ```
+ 7. When BentoML service is runned you can use locust for high-performance testing
+
+ From _./high-performance_ folder under conda project venv run and use you browser on _localhost:8089_
+
+ ```locust -H http://localhost:3000```
+
