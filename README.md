@@ -115,7 +115,7 @@ and returns something like
  "saledate": "Wed Feb 25 2015 03:30:00 GMT-0800 (PST)"
  }
  ```
- 7. When BentoML service is runned you can use locust for high-performance testing
+ 7. When SwaggerUI service with bento is runned you can use _locust_ for high-performance testing
 
  From _./high-performance_ folder under conda project venv run and use you browser on _localhost:8089_
 
