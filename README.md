@@ -10,21 +10,21 @@ Project is created on Yandex Cloud VM under Ubuntu and stored as GitHub reposito
 Initial steps:
 
 clone the repo and _car-prices-midterm_ will be the _project folder_ 
-> ```git clone https://github.com/K0nkere/Car-prices-midterm.git```
+```git clone https://github.com/K0nkere/Car-prices-midterm.git```
 
 from the _project folder_ create conda virtual environment based on the provided _requirements.txt_ and _python 3.9_
-> ```conda create -n midterm-project python=3.9```
+```conda create -n midterm-project python=3.9```
 
 activate the conda env
-> ```conda activate midterm-project```
+```conda activate midterm-project```
 
 installation python packages
-> ```pip install -r requirements.txt```
+```pip install -r requirements.txt```
 
 If you are using Jupyter Notebook then its need to add venv python to ipykernel list
-> ```conda install -c anaconda ipykernel```
+```conda install -c anaconda ipykernel```
 
-> ```python -m ipykernel install --user --name=midterm-project```
+```python -m ipykernel install --user --name=midterm-project```
 
 So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter Notebooks's menu
 
@@ -38,11 +38,11 @@ So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter No
 
 ### Running
 1. Activate the conda venv from the _project folder_
-> ```conda activate midterm-project```
+```conda activate midterm-project```
 2. Run model trainig process - it will train model on _full train_ dataset and will save it as a BentoML model
-> ```python train-model.py```
+```python train-model.py```
 3. Check it with
-> ```bentoml models list```
+```bentoml models list```
 
 It will return something like 
 >
@@ -57,16 +57,25 @@ At this point you can validate the working process by manually launching with AP
 ```docker kill <container_id>``` use if need
 
 Running the service
-> ```bentoml serve service.py:svc --reload```
+```bentoml serve service.py:svc --reload```
 
 Access API service with your browser _localhost:3000_ and you can use the following test - it is the 199 row of _test dataset_
 
 4. But its better to use containerized approach
-from the _/deployment_ folder run
 
-```bentoml build``` - it will create BentoML bento based on the _bentofile.yaml_ and _requirements.txt_ and returns something like 
+From the _/deployment_ folder run
+
+```bentoml build``` - it will create BentoML bento based on the _bentofile.yaml_ and _requirements.txt_
+
+and returns something like 
 > Successfully built Bento(tag="car-price-prediction-service:jxb4f6tbas3mook6")
 
+5. Create the BentoML container - and use your tag
+(For reproducing this step Docker Engine and Docker Desktop have to be installed - if it is not - follow the [guide](https://github.com/K0nkere/ml-bookcamp/issues/3))
+```bentoml containerize car-price-prediction-service:<use-your-tag>```
+
+6. Run the container with using your tag
+```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve --production```
 
 ```
 {
