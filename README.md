@@ -73,7 +73,7 @@ Running the service
 
 ```bentoml serve service.py:svc --reload```
 
-Access API service with your browser _localhost:3000_ and you can use the following test - it is the 199 row of _test dataset_
+Access API service with your browser _localhost:3000_ and you can use the test record from the buttom - it is the 199 row of _test dataset_
 
 4. But its better to use containerized approach
 
@@ -92,9 +92,15 @@ and returns something like
 
 6. Run the container by using your tag (!!!)
 
-```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve```
+```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve --production```
 
-### Test row
+7. I`ve pushed working docker image into Yandex Cloud Container Registry so you can simply download it with and run
+
+```docker pull cr.yandex/crpm0irf763n0aipv24s/car-price-prediction-service:rm3ldstbhkwhxfk3```
+
+```docker run -it --rm -p 3000:3000 cr.yandex/crpm0irf763n0aipv24s/car-price-prediction-service:rm3ldstbhkwhxfk3 serve --production```
+
+### Test record
 ```
 {
 "year": 2014,
@@ -115,9 +121,9 @@ and returns something like
  "saledate": "Wed Feb 25 2015 03:30:00 GMT-0800 (PST)"
  }
  ```
- 7. When SwaggerUI service with bento is runned you can use _locust_ for high-performance testing
+ 
+ 8. When SwaggerUI service with bento is runned you can use _locust_ for high-performance testing
 
  From _./high-performance_ folder under conda project venv run and use you browser on _localhost:8089_
 
  ```locust -H http://localhost:3000```
-

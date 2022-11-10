@@ -107,12 +107,6 @@ if __name__ == "__main__":
                                 "OrdinalEncoder": ordinal,
                                 "StandardScaler": scaler,
                                 "DictVectorizer": dv
-                                },
-                            signatures={
-                                "predict": {
-                                    "batchable": True,
-                                    "batch_dim": 0
-                                    }
                                 }
                             )
 
