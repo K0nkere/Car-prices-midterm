@@ -9,15 +9,21 @@ Project is created on Yandex Cloud VM under Ubuntu and stored as GitHub reposito
 Initial steps:
 clone the repo and __car-prices-midterm__ will be the __project folder__ 
 >`git clone https://github.com/K0nkere/Car-prices-midterm.git`
+
 from the __project folder__ create conda virtual environment based on the provided __requirements.txt__ and __python 3.9__
 > `conda create -n midterm-project python=3.9`
+
 activate the conda env
 > `conda activate midterm-project`
+
 installation python packages
 > `pip install -r requirements.txt`
+
 If you are using Jupyter Notebook then its need to add venv python to ipykernel list
 > `conda install -c anaconda ipykernel`
+
 > `python -m ipykernel install --user --name=midterm-project`
+
 So you can choose __midterm-project__ as a kernel for .ipynb scripts in Jupyter Notebooks's menu
 
 ### Files and folders of __project folder__
