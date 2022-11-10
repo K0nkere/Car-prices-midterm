@@ -10,23 +10,28 @@ Project is created on Yandex Cloud VM under Ubuntu and stored as GitHub reposito
 Initial steps:
 
 clone the repo and _car-prices-midterm_ will be the _project folder_ 
+
 ```git clone https://github.com/K0nkere/Car-prices-midterm.git```
 
 from the _project folder_ create conda virtual environment based on the provided _requirements.txt_ and _python 3.9_
+
 ```conda create -n midterm-project python=3.9```
 
 activate the conda env
+
 ```conda activate midterm-project```
 
 installation python packages
+
 ```pip install -r requirements.txt```
 
 If you are using Jupyter Notebook then its need to add venv python to ipykernel list
+
 ```conda install -c anaconda ipykernel```
 
 ```python -m ipykernel install --user --name=midterm-project```
 
-So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter Notebooks's menu
+So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter Notebooks's menu if you want to run _project-EDA_ and _model-training-tuning_
 
 ### Files and folders of _project folder_
 - _dataset_ folder contains previously downloaded data files that is used for train and test purposes
@@ -46,10 +51,13 @@ So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter No
 
 It will return something like 
 >
+```
  Tag                                          Module           Size        Creation Time       
  car-price-prediction-model:szcugfdangto4loz  bentoml.xgboost  4.35 MiB    2022-11-09 20:03:32
+```
 
 At this point you can validate the working process by manually launching with API service
+
 ```cd deployment``` - move to _deployment_ folder
 
 ```docker ps``` - check that 3000 port is empty
@@ -57,6 +65,7 @@ At this point you can validate the working process by manually launching with AP
 ```docker kill <container_id>``` use if need
 
 Running the service
+
 ```bentoml serve service.py:svc --reload```
 
 Access API service with your browser _localhost:3000_ and you can use the following test - it is the 199 row of _test dataset_
@@ -70,14 +79,19 @@ From the _/deployment_ folder run
 and returns something like 
 > Successfully built Bento(tag="car-price-prediction-service:jxb4f6tbas3mook6")
 
-5. Create the BentoML container - and use your tag
-(For reproducing this step Docker Engine and Docker Desktop have to be installed - if it is not - follow the [guide](https://github.com/K0nkere/ml-bookcamp/issues/3))
+5. Create the BentoML container - use your tag (!!!)
+
+(For reproducing this step Docker Engine and Docker Desktop have to be installed. If they are not - follow the [guide](https://github.com/K0nkere/ml-bookcamp/issues/3))
+
 ```bentoml containerize car-price-prediction-service:<use-your-tag>```
 
-6. Run the container with using your tag
+6. Run the container by using your tag (!!!)
+
 ```docker run -it --rm -p 3000:3000 car-price-prediction-service:<use-your-tag> serve --production```
 
+### Test row
 ```
+
 {
 "year": 2014,
  "make": "Ram",
