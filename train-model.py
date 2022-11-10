@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     params = {
         "eta": 0.2,
-        "n_estimators": 250,
+        "n_estimators": 350,
         "max_depth": 12,
         "min_child_weight": 8,
         "nthread": -1,
@@ -107,6 +107,12 @@ if __name__ == "__main__":
                                 "OrdinalEncoder": ordinal,
                                 "StandardScaler": scaler,
                                 "DictVectorizer": dv
+                                },
+                            signatures={
+                                "predict": {
+                                    "batchable": True,
+                                    "batch_dim": 0
                                 }
+                            }
                             )
 

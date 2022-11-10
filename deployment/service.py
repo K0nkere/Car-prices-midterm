@@ -32,7 +32,7 @@ svc = bentoml.Service("car-price-prediction-service", runners=[model_runner])
 # @svc.api(input=JSON(), output=JSON())
 
 @svc.api(input=JSON(pydantic_model=CarApplication), output=JSON())
-def predictor(car_application):
+async def predictor(car_application):
     
     application_data=car_application.dict()
 
@@ -69,7 +69,7 @@ def predictor(car_application):
 
     sample = dv.transform(vector)
     
-    prediction = float(model_runner.predict.run(sample))
+    prediction = float(await model_runner.predict.async_run(sample))
 
     result = {
             "price_estimation": np.expm1(prediction).round(1),

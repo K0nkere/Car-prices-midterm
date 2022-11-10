@@ -2,7 +2,7 @@ Hello! This is a ML-bookcamp midterm project based on the [Kaggle Used Car Aucti
 
 ### Problem description
 
-The dataset contains historical information about characteristics of used cars put up for various auctions and its selling prices. I want to create a web service will allows us to predict the initial price of a car on the basis of its type and information about recent transactions. Of course each car has its own characteristics and unique condition, nevertheless, service will allows a potential seller to evaluate his auto in the current market or projected price can be used by an auction as a starting point for further bidding.
+The dataset contains historical information about characteristics of used cars putted up for various auctions and its selling prices. I want to create a web service will allows us to predict the initial price of a car on the basis of its type and information about recent transactions. Of course each car has its own characteristics and unique condition, nevertheless, service will allows a potential seller to evaluate his auto in the current market or projected price can be used by an auction as a starting point for further bidding.
 
 ### Initialization
 Project is created on Yandex Cloud VM under Ubuntu and stored as GitHub repository.
@@ -25,7 +25,7 @@ installation python packages
 
 ```pip install -r requirements.txt```
 
-If you are using Jupyter Notebook then its need to add venv python to ipykernel list
+If you are using Jupyter Notebook then its need to add venv python kernel to ipykernel list
 
 ```conda install -c anaconda ipykernel```
 
@@ -45,9 +45,11 @@ So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter No
 1. Activate the conda venv from the _project folder_
 
 ```conda activate midterm-project```
+
 2. Run model trainig process - it will train model on _full train_ dataset and will save it as a BentoML model
 
 ```python train-model.py```
+
 3. Check it with
 
 ```bentoml models list```
@@ -75,7 +77,7 @@ Access API service with your browser _localhost:3000_ and you can use the follow
 
 4. But its better to use containerized approach
 
-From the _/deployment_ folder run
+From the _/deployment_ folder under the conda project venv run
 
 ```bentoml build``` - it will create BentoML bento based on the _bentofile.yaml_ and _requirements.txt_
 
@@ -94,7 +96,6 @@ and returns something like
 
 ### Test row
 ```
-
 {
 "year": 2014,
  "make": "Ram",
@@ -114,4 +115,3 @@ and returns something like
  "saledate": "Wed Feb 25 2015 03:30:00 GMT-0800 (PST)"
  }
  ```
-

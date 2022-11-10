@@ -13,3 +13,4 @@ matplotlib
 
 bentoml==1.0.7
 flask
+locust==2.13.0
