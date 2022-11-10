@@ -11,14 +11,19 @@ Initial steps:
 
 clone the repo and _car-prices-midterm_ will be the _project folder_ 
 > ```git clone https://github.com/K0nkere/Car-prices-midterm.git```
+
 from the _project folder_ create conda virtual environment based on the provided _requirements.txt_ and _python 3.9_
 > ```conda create -n midterm-project python=3.9```
+
 activate the conda env
 > ```conda activate midterm-project```
+
 installation python packages
 > ```pip install -r requirements.txt```
+
 If you are using Jupyter Notebook then its need to add venv python to ipykernel list
 > ```conda install -c anaconda ipykernel```
+
 > ```python -m ipykernel install --user --name=midterm-project```
 
 So you can choose _midterm-project_ as a kernel for .ipynb scripts in Jupyter Notebooks's menu
