@@ -50,9 +50,12 @@ It will return something like
  car-price-prediction-model:szcugfdangto4loz  bentoml.xgboost  4.35 MiB    2022-11-09 20:03:32
 
 At this point you can validate the working process by manually launching with API service
-> ```cd deployment``` - move to _deployment_ folder
->> ```docker ps``` - check that 3000 port is empty
->> ```docker kill <container_id>``` use if need
+```cd deployment``` - move to _deployment_ folder
+
+```docker ps``` - check that 3000 port is empty
+
+```docker kill <container_id>``` use if need
+
 Running the service
 > ```bentoml serve service.py:svc --reload```
 
@@ -60,6 +63,7 @@ Access API service with your browser _localhost:3000_ and you can use the follow
 
 4. But its better to use containerized approach
 from the _/deployment_ folder run
+
 ```bentoml build``` - it will create BentoML bento based on the _bentofile.yaml_ and _requirements.txt_ and returns something like 
 > Successfully built Bento(tag="car-price-prediction-service:jxb4f6tbas3mook6")
 
